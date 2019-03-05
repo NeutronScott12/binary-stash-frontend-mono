@@ -1,0 +1,96 @@
+# import { gql } from 'apollo-boost'
+
+# export const CREATE_COMMENT_API = gql`
+
+fragment CommentAPIFragment on CommentAPI {
+	id
+	commentSections {
+		id
+		pageId
+		url
+		admin {
+			id
+			username
+			email
+		}
+		moderators {
+			id
+			user {
+				id
+				username
+				email
+			}
+		}
+		options {
+			comments_open
+		}
+		bannedUsers {
+			id
+			username
+			email
+		}
+		createdAt
+		updatedAt
+	}
+	createdAt
+	updatedAt
+	owner {
+		id
+		username
+		email
+	}
+	consumerKey
+	privateKey
+}
+
+mutation CreateCommentAPI {
+	createCommentApi {
+		commentAPI {
+			...CommentAPIFragment
+		}
+		privateKey
+	}
+}
+# `
+query FetchCommentAPIS {
+	fetchCommentAPIs {
+		id
+		commentSections {
+			id
+			pageId
+			url
+			admin {
+				id
+				username
+				email
+			}
+			moderators {
+				id
+				user {
+					id
+					username
+					email
+				}
+			}
+			options {
+				comments_open
+			}
+			bannedUsers {
+				id
+				username
+				email
+			}
+			createdAt
+			updatedAt
+		}
+		createdAt
+		updatedAt
+		owner {
+			id
+			username
+			email
+		}
+		consumerKey
+		privateKey
+	}
+}

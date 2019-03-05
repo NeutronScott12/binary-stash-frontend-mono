@@ -1,8 +1,5 @@
-schema:
-    - http://localhost:2000/graphql
-    - |
-        scalar Upload
-documents: ./src/**/*.tsx
+schema: http://localhost:3636/graphql
+documents: ./src/**/*.graphql
 overwrite: true
 generates:
     ./src/apollo/components/apollo-components.tsx:

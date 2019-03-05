@@ -1,6 +1,6 @@
 import ApolloClient from 'apollo-boost'
 
 export default new ApolloClient({
-	uri: '',
+	uri: 'http://localhost:3636',
 	credentials: 'include'
 })

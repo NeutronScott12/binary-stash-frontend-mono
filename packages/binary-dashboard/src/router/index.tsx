@@ -1,7 +1,7 @@
+import { Spinner } from '@binary-stash/common'
 import * as React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { layout } from '../modules/MainPage/layout'
-import { Spinner } from '../utils/components/MainSpinner'
 
 interface IProps {}
 
