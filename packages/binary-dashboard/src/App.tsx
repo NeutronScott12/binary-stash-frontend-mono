@@ -1,40 +1,36 @@
 import React, { Component } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import styled from 'styled-components'
+import SideBarContainer from './modules/MainSideBar/containers'
 import { Header } from './partials/components/Header'
 import { Router } from './router'
+import { Container, Layout } from './styles'
 
-const Container = styled.div`
+const MainLayout = styled.div`
 	display: grid;
-	margin: auto;
-	color: #fff;
-	width: 100%;
-	margin-top: 3rem;
-	background: grey;
-	border: 5px solid purple;
-`
-
-const Layout = styled.div`
-	display: flex;
 	background: #302f2f;
-	flex-direction: column;
-	min-height: 100vh;
-
-	@media (max-width: 768px) {
-		margin-left: 2rem;
-	}
+	grid-template-areas:
+		'mainheader mainheader mainheader'
+		'mainsidebar c c'
+		'mainsidebar c c';
+	grid-template-rows: 5rem 1fr 30px;
+	grid-template-columns: 15rem 1fr;
 `
 
 class App extends Component {
 	render() {
 		return (
-			<React.Fragment>
-				<Header />
-				<Layout>
-					<Container className="App">
-						<Router />
-					</Container>
-				</Layout>
-			</React.Fragment>
+			<BrowserRouter>
+				<MainLayout>
+					<Header />
+					<SideBarContainer />
+					<Layout>
+						<Container>
+							<Router />
+						</Container>
+					</Layout>
+				</MainLayout>
+			</BrowserRouter>
 		)
 	}
 }

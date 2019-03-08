@@ -1,11 +1,13 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Container = styled.div`
 	background: blue;
+	grid-area: mainheader;
 
 	@media (min-width: 768px) {
-		height: 5rem;
+		/* height: 5rem; */
 		display: flex;
 		justify-content: right;
 		align-items: center;
@@ -27,7 +29,9 @@ const Banner = styled.div`
 export const Header = () => {
 	return (
 		<Container>
-			<Banner>Site Banner</Banner>
+			<Banner>
+				<Link to="/">Site Banner</Link>
+			</Banner>
 		</Container>
 	)
 }

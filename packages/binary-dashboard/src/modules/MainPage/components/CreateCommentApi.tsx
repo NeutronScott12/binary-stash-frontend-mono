@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Button } from 'semantic-ui-react'
 import { CreateCommentApiComponent } from '../../../apollo/components/apollo-components'
 
 interface IProps {}
@@ -9,7 +10,7 @@ export const CreateCommentAPI: React.FC<IProps> = () => {
 			{mutate => {
 				return (
 					<React.Fragment>
-						<button
+						<Button
 							onClick={async () => {
 								await mutate({
 									variables: {
@@ -19,7 +20,7 @@ export const CreateCommentAPI: React.FC<IProps> = () => {
 							}}
 						>
 							Create Comment API
-						</button>
+						</Button>
 					</React.Fragment>
 				)
 			}}

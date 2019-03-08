@@ -1801,6 +1801,8 @@ export type FetchCommentApiFetchCommentApi = {
 
 	id: string
 
+	name: string
+
 	commentSections: Maybe<FetchCommentApiCommentSections[]>
 
 	createdAt: DateTime
@@ -1923,6 +1925,8 @@ export type FetchCommentApisFetchCommentApIs = {
 
 	id: string
 
+	name: string
+
 	commentSections: Maybe<FetchCommentApisCommentSections[]>
 
 	createdAt: DateTime
@@ -2016,6 +2020,8 @@ export type CommentApiFragmentFragment = {
 	__typename?: 'CommentAPI'
 
 	id: string
+
+	name: string
 
 	commentSections: Maybe<CommentApiFragmentCommentSections[]>
 
@@ -2117,6 +2123,7 @@ import * as ReactApollo from 'react-apollo'
 export const CommentApiFragmentFragmentDoc = gql`
 	fragment CommentAPIFragment on CommentAPI {
 		id
+		name
 		commentSections {
 			id
 			pageId
@@ -2165,6 +2172,7 @@ export const FetchCommentApiDocument = gql`
 	query FetchCommentAPI($id: ID!) {
 		fetchCommentAPI(id: $id) {
 			id
+			name
 			commentSections {
 				id
 				pageId
@@ -2291,6 +2299,7 @@ export const FetchCommentApisDocument = gql`
 	query FetchCommentAPIS {
 		fetchCommentAPIs {
 			id
+			name
 			commentSections {
 				id
 				pageId

@@ -3,7 +3,7 @@ import { CommentAPIRoutes } from '../routes'
 
 export const CommentAPIlayout: IRoute[] = [
 	{
-		path: '/:id',
+		path: '/app',
 		component: CommentAPIRoutes,
 		guest: false
 	}

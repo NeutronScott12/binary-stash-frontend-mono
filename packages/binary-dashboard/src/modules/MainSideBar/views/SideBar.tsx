@@ -1,4 +1,6 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
+import { Divider, List } from 'semantic-ui-react'
 import {
 	FetchCommentApisFetchCommentApIs,
 	Maybe
@@ -10,19 +12,24 @@ interface IProps {
 
 export const MainPageSidebar: React.FC<IProps> = ({ commentAPI }) => {
 	return (
-		<div>
+		<List>
+			<List.Header>
+				<h3 style={{ color: '#FFF' }}>Products</h3>
+			</List.Header>
+			<Divider />
 			{commentAPI.map((api, i) => {
 				if (api) {
 					return (
-						<div key={api.id}>
-							<h4>Owner: {api.owner.username}</h4>
-							<h4>Consumer Key: {api.consumerKey}</h4>
-						</div>
+						<List.Item key={api.id}>
+							<Link to={`/app/${api.id}`}>
+								<h4>Name: {api.name}</h4>
+							</Link>
+						</List.Item>
 					)
 				} else {
 					return <div key={Math.random() + i}>Currently no APIs</div>
 				}
 			})}
-		</div>
+		</List>
 	)
 }

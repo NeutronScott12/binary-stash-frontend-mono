@@ -1,6 +1,7 @@
 query FetchCommentAPI($id: ID!) {
 	fetchCommentAPI(id: $id) {
 		id
+		name
 		commentSections {
 			id
 			pageId

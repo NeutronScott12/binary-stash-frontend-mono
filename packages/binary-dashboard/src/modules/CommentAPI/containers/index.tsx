@@ -1,9 +1,15 @@
+import dayjs from 'dayjs'
 import * as React from 'react'
-import { RouteComponentProps } from 'react-router-dom'
+import { RouteComponentProps, withRouter } from 'react-router-dom'
 import { Card } from 'semantic-ui-react'
+import styled from 'styled-components'
 import { FetchCommentApiComponent } from '../../../apollo/components/apollo-components'
 
 interface IProps extends RouteComponentProps<{ id: string }> {}
+
+const CardStyles = styled.div`
+	color: #000;
+`
 
 const CommentAPIContainer: React.FC<IProps> = ({
 	match: {
@@ -14,14 +20,20 @@ const CommentAPIContainer: React.FC<IProps> = ({
 		<div>
 			<h2>Comment API Container</h2>
 			<FetchCommentApiComponent variables={{ id }}>
-				{({ data, loading }) => {
+				{({ data, loading, error }) => {
 					if (loading) {
 						return <div>loading...</div>
 					}
 
-					if (data === undefined && data === null && !loading) {
+					if (error && !loading) {
+						return <div>{error.message}</div>
+					}
+
+					if (!data && !loading) {
 						return <div>Error</div>
 					}
+
+					console.log('DATA', data)
 
 					if (
 						data !== undefined &&
@@ -29,11 +41,26 @@ const CommentAPIContainer: React.FC<IProps> = ({
 						data.fetchCommentAPI !== null
 					) {
 						return (
-							<div>
+							<CardStyles>
 								<Card>
-									<h2>owner: {data.fetchCommentAPI.owner.username}</h2>
+									<Card.Content>
+										<Card.Header>
+											{' '}
+											<h3>{data.fetchCommentAPI.owner.username}</h3>{' '}
+										</Card.Header>
+
+										<Card.Meta>
+											Created at:{' '}
+											{dayjs(data.fetchCommentAPI.createdAt).format(
+												'DD/MM/YYYY'
+											)}
+										</Card.Meta>
+										<Card.Description>
+											<h4>owner: {data.fetchCommentAPI.owner.username}</h4>
+										</Card.Description>
+									</Card.Content>
 								</Card>
-							</div>
+							</CardStyles>
 						)
 					}
 				}}
@@ -42,4 +69,4 @@ const CommentAPIContainer: React.FC<IProps> = ({
 	)
 }
 
-export default CommentAPIContainer
+export default withRouter(CommentAPIContainer)

@@ -4,6 +4,7 @@
 
 fragment CommentAPIFragment on CommentAPI {
 	id
+	name
 	commentSections {
 		id
 		pageId
@@ -55,6 +56,7 @@ mutation CreateCommentAPI($name: String!) {
 query FetchCommentAPIS {
 	fetchCommentAPIs {
 		id
+		name
 		commentSections {
 			id
 			pageId
