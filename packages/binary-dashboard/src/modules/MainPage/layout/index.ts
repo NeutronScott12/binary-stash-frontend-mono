@@ -1,9 +1,10 @@
 import { IRoute } from '../../../ts/types'
+import { MainPageRoutes } from '../routes'
 
-export const layout: IRoute[] = [
+export const MainPagelayout: IRoute[] = [
 	{
-		path: '',
-		component: '',
+		path: '/',
+		component: MainPageRoutes,
 		guest: false
 	}
 ]

@@ -11,7 +11,11 @@ export const CreateCommentAPI: React.FC<IProps> = () => {
 					<React.Fragment>
 						<button
 							onClick={async () => {
-								await mutate()
+								await mutate({
+									variables: {
+										name: 'bob'
+									}
+								})
 							}}
 						>
 							Create Comment API

@@ -1,0 +1,42 @@
+query FetchCommentAPI($id: ID!) {
+	fetchCommentAPI(id: $id) {
+		id
+		commentSections {
+			id
+			pageId
+			url
+			admin {
+				id
+				username
+				email
+			}
+			moderators {
+				id
+				user {
+					id
+					username
+					email
+				}
+			}
+			options {
+				comments_open
+			}
+			bannedUsers {
+				id
+				username
+				email
+			}
+			createdAt
+			updatedAt
+		}
+		createdAt
+		updatedAt
+		owner {
+			id
+			username
+			email
+		}
+		consumerKey
+		privateKey
+	}
+}

@@ -1786,7 +1786,113 @@ export type DateTime = any
 // Documents
 // ====================================================
 
-export type CreateCommentApiVariables = {}
+export type FetchCommentApiVariables = {
+	id: string
+}
+
+export type FetchCommentApiQuery = {
+	__typename?: 'Query'
+
+	fetchCommentAPI: Maybe<FetchCommentApiFetchCommentApi>
+}
+
+export type FetchCommentApiFetchCommentApi = {
+	__typename?: 'CommentAPI'
+
+	id: string
+
+	commentSections: Maybe<FetchCommentApiCommentSections[]>
+
+	createdAt: DateTime
+
+	updatedAt: DateTime
+
+	owner: FetchCommentApiOwner
+
+	consumerKey: string
+
+	privateKey: string
+}
+
+export type FetchCommentApiCommentSections = {
+	__typename?: 'CommentSection'
+
+	id: string
+
+	pageId: string
+
+	url: string
+
+	admin: FetchCommentApiAdmin
+
+	moderators: Maybe<FetchCommentApiModerators[]>
+
+	options: FetchCommentApiOptions
+
+	bannedUsers: Maybe<FetchCommentApiBannedUsers[]>
+
+	createdAt: DateTime
+
+	updatedAt: DateTime
+}
+
+export type FetchCommentApiAdmin = {
+	__typename?: 'User'
+
+	id: string
+
+	username: string
+
+	email: Maybe<string>
+}
+
+export type FetchCommentApiModerators = {
+	__typename?: 'Moderator'
+
+	id: string
+
+	user: FetchCommentApiUser
+}
+
+export type FetchCommentApiUser = {
+	__typename?: 'User'
+
+	id: string
+
+	username: string
+
+	email: Maybe<string>
+}
+
+export type FetchCommentApiOptions = {
+	__typename?: 'CommentOptions'
+
+	comments_open: boolean
+}
+
+export type FetchCommentApiBannedUsers = {
+	__typename?: 'User'
+
+	id: string
+
+	username: string
+
+	email: Maybe<string>
+}
+
+export type FetchCommentApiOwner = {
+	__typename?: 'User'
+
+	id: string
+
+	username: string
+
+	email: Maybe<string>
+}
+
+export type CreateCommentApiVariables = {
+	name: string
+}
 
 export type CreateCommentApiMutation = {
 	__typename?: 'Mutation'
@@ -2055,9 +2161,86 @@ export const CommentApiFragmentFragmentDoc = gql`
 // Components
 // ====================================================
 
+export const FetchCommentApiDocument = gql`
+	query FetchCommentAPI($id: ID!) {
+		fetchCommentAPI(id: $id) {
+			id
+			commentSections {
+				id
+				pageId
+				url
+				admin {
+					id
+					username
+					email
+				}
+				moderators {
+					id
+					user {
+						id
+						username
+						email
+					}
+				}
+				options {
+					comments_open
+				}
+				bannedUsers {
+					id
+					username
+					email
+				}
+				createdAt
+				updatedAt
+			}
+			createdAt
+			updatedAt
+			owner {
+				id
+				username
+				email
+			}
+			consumerKey
+			privateKey
+		}
+	}
+`
+export class FetchCommentApiComponent extends React.Component<
+	Partial<ReactApollo.QueryProps<FetchCommentApiQuery, FetchCommentApiVariables>>
+> {
+	render() {
+		return (
+			<ReactApollo.Query<FetchCommentApiQuery, FetchCommentApiVariables>
+				query={FetchCommentApiDocument}
+				{...(this as any)['props'] as any}
+			/>
+		)
+	}
+}
+export type FetchCommentApiProps<TChildProps = any> = Partial<
+	ReactApollo.DataProps<FetchCommentApiQuery, FetchCommentApiVariables>
+> &
+	TChildProps
+export function FetchCommentApiHOC<TProps, TChildProps = any>(
+	operationOptions:
+		| ReactApollo.OperationOption<
+				TProps,
+				FetchCommentApiQuery,
+				FetchCommentApiVariables,
+				FetchCommentApiProps<TChildProps>
+		  >
+		| undefined
+) {
+	return ReactApollo.graphql<
+		TProps,
+		FetchCommentApiQuery,
+		FetchCommentApiVariables,
+		FetchCommentApiProps<TChildProps>
+	>(FetchCommentApiDocument, operationOptions)
+}
 export const CreateCommentApiDocument = gql`
-	mutation CreateCommentAPI {
-		createCommentApi {
+	mutation CreateCommentAPI($name: String!) {
+		createCommentApi(name: $name) {
 			commentAPI {
 				...CommentAPIFragment
 			}

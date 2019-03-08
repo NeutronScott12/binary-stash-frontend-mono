@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { FetchCommentApisComponent } from '../../../apollo/components/apollo-components'
+import { MainPageSidebar } from '../views/SideBar'
 
 export const FetchCommentAPIS: React.FC = (): JSX.Element => {
 	return (
@@ -22,22 +23,7 @@ export const FetchCommentAPIS: React.FC = (): JSX.Element => {
 						data.fetchCommentAPIs !== undefined &&
 						data.fetchCommentAPIs !== null
 					) {
-						return (
-							<div>
-								{data.fetchCommentAPIs.map((api, i) => {
-									if (api) {
-										return (
-											<div key={api.id}>
-												<h4>Owner: {api.owner.username}</h4>
-												<h4>Consumer Key: {api.consumerKey}</h4>
-											</div>
-										)
-									} else {
-										return <div key={Math.random() + i}>Currently no APIs</div>
-									}
-								})}
-							</div>
-						)
+						return <MainPageSidebar commentAPI={data.fetchCommentAPIs} />
 					}
 				}}
 			</FetchCommentApisComponent>

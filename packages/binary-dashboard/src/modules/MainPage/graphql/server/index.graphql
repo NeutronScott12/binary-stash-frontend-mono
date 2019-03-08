@@ -43,8 +43,8 @@ fragment CommentAPIFragment on CommentAPI {
 	privateKey
 }
 
-mutation CreateCommentAPI {
-	createCommentApi {
+mutation CreateCommentAPI($name: String!) {
+	createCommentApi(name: $name) {
 		commentAPI {
 			...CommentAPIFragment
 		}
