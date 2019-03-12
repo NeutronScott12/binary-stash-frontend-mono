@@ -1,7 +1,6 @@
 import { Spinner } from '@binary-stash/common'
 import * as React from 'react'
 import styled from 'styled-components'
-import { CreateCommentAPI } from '../components/CreateCommentApi'
 
 const PageContainer = styled.div`
 	display: grid;
@@ -19,7 +18,7 @@ const MainPageContainer: React.FC = () => {
 	return (
 		<React.Suspense fallback={Spinner}>
 			<PageContainer>
-				<CreateCommentAPI />
+				<h2>Main Page</h2>
 			</PageContainer>
 		</React.Suspense>
 	)

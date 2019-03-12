@@ -7,7 +7,7 @@ const Layout = styled.div`
 	/* width: 10rem; */
 	grid-area: mainsidebar;
 	background: #302f2f;
-	border: 10px solid purple;
+	border-right: 1px solid black;
 	padding: 0.5rem;
 `
 

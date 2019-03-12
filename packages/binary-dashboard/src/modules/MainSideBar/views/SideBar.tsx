@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { Divider, List } from 'semantic-ui-react'
+import { Divider, Icon, List } from 'semantic-ui-react'
+import styled from 'styled-components'
 import {
 	FetchCommentApisFetchCommentApIs,
 	Maybe
@@ -10,11 +11,27 @@ interface IProps {
 	commentAPI: Maybe<FetchCommentApisFetchCommentApIs>[]
 }
 
+const HeaderLayout = styled.div`
+	color: #fff;
+	display: flex;
+	justify-content: content;
+	flex-direction: row;
+
+	h3 {
+		flex-grow: 3;
+	}
+`
+
 export const MainPageSidebar: React.FC<IProps> = ({ commentAPI }) => {
 	return (
 		<List>
 			<List.Header>
-				<h3 style={{ color: '#FFF' }}>Products</h3>
+				<HeaderLayout>
+					<h3 style={{ color: '#FFF' }}>Products</h3>
+					<Link to="/create">
+						<Icon name="add" />
+					</Link>
+				</HeaderLayout>
 			</List.Header>
 			<Divider />
 			{commentAPI.map((api, i) => {

@@ -6,7 +6,7 @@ export const Container = styled.div`
 	color: #fff;
 	width: 100%;
 	padding: 1rem;
-	background: grey;
+	/* background: grey; */
 `
 
 export const Layout = styled.div`
