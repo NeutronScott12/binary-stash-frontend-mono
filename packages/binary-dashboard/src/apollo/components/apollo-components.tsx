@@ -629,6 +629,12 @@ export interface UserWhereInput {
 
 	teams_none?: Maybe<TeamWhereInput>
 
+	api_services_every?: Maybe<ApiServiceWhereInput>
+
+	api_services_some?: Maybe<ApiServiceWhereInput>
+
+	api_services_none?: Maybe<ApiServiceWhereInput>
+
 	channels_every?: Maybe<ChannelWhereInput>
 
 	channels_some?: Maybe<ChannelWhereInput>
@@ -1478,6 +1484,312 @@ export interface FileWhereInput {
 	NOT?: Maybe<FileWhereInput[]>
 }
 
+export interface ApiServiceWhereInput {
+	id?: Maybe<string>
+
+	id_not?: Maybe<string>
+
+	id_in?: Maybe<string[]>
+
+	id_not_in?: Maybe<string[]>
+
+	id_lt?: Maybe<string>
+
+	id_lte?: Maybe<string>
+
+	id_gt?: Maybe<string>
+
+	id_gte?: Maybe<string>
+
+	id_contains?: Maybe<string>
+
+	id_not_contains?: Maybe<string>
+
+	id_starts_with?: Maybe<string>
+
+	id_not_starts_with?: Maybe<string>
+
+	id_ends_with?: Maybe<string>
+
+	id_not_ends_with?: Maybe<string>
+
+	settings?: Maybe<ApiServiceSettingsWhereInput>
+
+	name?: Maybe<string>
+
+	name_not?: Maybe<string>
+
+	name_in?: Maybe<string[]>
+
+	name_not_in?: Maybe<string[]>
+
+	name_lt?: Maybe<string>
+
+	name_lte?: Maybe<string>
+
+	name_gt?: Maybe<string>
+
+	name_gte?: Maybe<string>
+
+	name_contains?: Maybe<string>
+
+	name_not_contains?: Maybe<string>
+
+	name_starts_with?: Maybe<string>
+
+	name_not_starts_with?: Maybe<string>
+
+	name_ends_with?: Maybe<string>
+
+	name_not_ends_with?: Maybe<string>
+
+	commentAPIs_every?: Maybe<CommentApiWhereInput>
+
+	commentAPIs_some?: Maybe<CommentApiWhereInput>
+
+	commentAPIs_none?: Maybe<CommentApiWhereInput>
+
+	owner?: Maybe<UserWhereInput>
+
+	createdAt?: Maybe<DateTime>
+
+	createdAt_not?: Maybe<DateTime>
+
+	createdAt_in?: Maybe<DateTime[]>
+
+	createdAt_not_in?: Maybe<DateTime[]>
+
+	createdAt_lt?: Maybe<DateTime>
+
+	createdAt_lte?: Maybe<DateTime>
+
+	createdAt_gt?: Maybe<DateTime>
+
+	createdAt_gte?: Maybe<DateTime>
+
+	updatedAt?: Maybe<DateTime>
+
+	updatedAt_not?: Maybe<DateTime>
+
+	updatedAt_in?: Maybe<DateTime[]>
+
+	updatedAt_not_in?: Maybe<DateTime[]>
+
+	updatedAt_lt?: Maybe<DateTime>
+
+	updatedAt_lte?: Maybe<DateTime>
+
+	updatedAt_gt?: Maybe<DateTime>
+
+	updatedAt_gte?: Maybe<DateTime>
+
+	AND?: Maybe<ApiServiceWhereInput[]>
+
+	OR?: Maybe<ApiServiceWhereInput[]>
+
+	NOT?: Maybe<ApiServiceWhereInput[]>
+}
+
+export interface ApiServiceSettingsWhereInput {
+	id?: Maybe<string>
+
+	id_not?: Maybe<string>
+
+	id_in?: Maybe<string[]>
+
+	id_not_in?: Maybe<string[]>
+
+	id_lt?: Maybe<string>
+
+	id_lte?: Maybe<string>
+
+	id_gt?: Maybe<string>
+
+	id_gte?: Maybe<string>
+
+	id_contains?: Maybe<string>
+
+	id_not_contains?: Maybe<string>
+
+	id_starts_with?: Maybe<string>
+
+	id_not_starts_with?: Maybe<string>
+
+	id_ends_with?: Maybe<string>
+
+	id_not_ends_with?: Maybe<string>
+
+	enforceHTTPS?: Maybe<boolean>
+
+	enforceHTTPS_not?: Maybe<boolean>
+
+	AND?: Maybe<ApiServiceSettingsWhereInput[]>
+
+	OR?: Maybe<ApiServiceSettingsWhereInput[]>
+
+	NOT?: Maybe<ApiServiceSettingsWhereInput[]>
+}
+
+export interface CommentApiWhereInput {
+	id?: Maybe<string>
+
+	id_not?: Maybe<string>
+
+	id_in?: Maybe<string[]>
+
+	id_not_in?: Maybe<string[]>
+
+	id_lt?: Maybe<string>
+
+	id_lte?: Maybe<string>
+
+	id_gt?: Maybe<string>
+
+	id_gte?: Maybe<string>
+
+	id_contains?: Maybe<string>
+
+	id_not_contains?: Maybe<string>
+
+	id_starts_with?: Maybe<string>
+
+	id_not_starts_with?: Maybe<string>
+
+	id_ends_with?: Maybe<string>
+
+	id_not_ends_with?: Maybe<string>
+
+	name?: Maybe<string>
+
+	name_not?: Maybe<string>
+
+	name_in?: Maybe<string[]>
+
+	name_not_in?: Maybe<string[]>
+
+	name_lt?: Maybe<string>
+
+	name_lte?: Maybe<string>
+
+	name_gt?: Maybe<string>
+
+	name_gte?: Maybe<string>
+
+	name_contains?: Maybe<string>
+
+	name_not_contains?: Maybe<string>
+
+	name_starts_with?: Maybe<string>
+
+	name_not_starts_with?: Maybe<string>
+
+	name_ends_with?: Maybe<string>
+
+	name_not_ends_with?: Maybe<string>
+
+	commentSections_every?: Maybe<CommentSectionWhereInput>
+
+	commentSections_some?: Maybe<CommentSectionWhereInput>
+
+	commentSections_none?: Maybe<CommentSectionWhereInput>
+
+	createdAt?: Maybe<DateTime>
+
+	createdAt_not?: Maybe<DateTime>
+
+	createdAt_in?: Maybe<DateTime[]>
+
+	createdAt_not_in?: Maybe<DateTime[]>
+
+	createdAt_lt?: Maybe<DateTime>
+
+	createdAt_lte?: Maybe<DateTime>
+
+	createdAt_gt?: Maybe<DateTime>
+
+	createdAt_gte?: Maybe<DateTime>
+
+	updatedAt?: Maybe<DateTime>
+
+	updatedAt_not?: Maybe<DateTime>
+
+	updatedAt_in?: Maybe<DateTime[]>
+
+	updatedAt_not_in?: Maybe<DateTime[]>
+
+	updatedAt_lt?: Maybe<DateTime>
+
+	updatedAt_lte?: Maybe<DateTime>
+
+	updatedAt_gt?: Maybe<DateTime>
+
+	updatedAt_gte?: Maybe<DateTime>
+
+	owner?: Maybe<UserWhereInput>
+
+	consumerKey?: Maybe<string>
+
+	consumerKey_not?: Maybe<string>
+
+	consumerKey_in?: Maybe<string[]>
+
+	consumerKey_not_in?: Maybe<string[]>
+
+	consumerKey_lt?: Maybe<string>
+
+	consumerKey_lte?: Maybe<string>
+
+	consumerKey_gt?: Maybe<string>
+
+	consumerKey_gte?: Maybe<string>
+
+	consumerKey_contains?: Maybe<string>
+
+	consumerKey_not_contains?: Maybe<string>
+
+	consumerKey_starts_with?: Maybe<string>
+
+	consumerKey_not_starts_with?: Maybe<string>
+
+	consumerKey_ends_with?: Maybe<string>
+
+	consumerKey_not_ends_with?: Maybe<string>
+
+	privateKey?: Maybe<string>
+
+	privateKey_not?: Maybe<string>
+
+	privateKey_in?: Maybe<string[]>
+
+	privateKey_not_in?: Maybe<string[]>
+
+	privateKey_lt?: Maybe<string>
+
+	privateKey_lte?: Maybe<string>
+
+	privateKey_gt?: Maybe<string>
+
+	privateKey_gte?: Maybe<string>
+
+	privateKey_contains?: Maybe<string>
+
+	privateKey_not_contains?: Maybe<string>
+
+	privateKey_starts_with?: Maybe<string>
+
+	privateKey_not_starts_with?: Maybe<string>
+
+	privateKey_ends_with?: Maybe<string>
+
+	privateKey_not_ends_with?: Maybe<string>
+
+	AND?: Maybe<CommentApiWhereInput[]>
+
+	OR?: Maybe<CommentApiWhereInput[]>
+
+	NOT?: Maybe<CommentApiWhereInput[]>
+}
+
 export interface RatingWhereInput {
 	id?: Maybe<string>
 
@@ -1763,6 +2075,32 @@ export enum TeamOrderByInput {
 	OnlineDesc = 'online_DESC'
 }
 
+export enum ApiServiceOrderByInput {
+	IdAsc = 'id_ASC',
+	IdDesc = 'id_DESC',
+	NameAsc = 'name_ASC',
+	NameDesc = 'name_DESC',
+	CreatedAtAsc = 'createdAt_ASC',
+	CreatedAtDesc = 'createdAt_DESC',
+	UpdatedAtAsc = 'updatedAt_ASC',
+	UpdatedAtDesc = 'updatedAt_DESC'
+}
+
+export enum CommentApiOrderByInput {
+	IdAsc = 'id_ASC',
+	IdDesc = 'id_DESC',
+	NameAsc = 'name_ASC',
+	NameDesc = 'name_DESC',
+	CreatedAtAsc = 'createdAt_ASC',
+	CreatedAtDesc = 'createdAt_DESC',
+	UpdatedAtAsc = 'updatedAt_ASC',
+	UpdatedAtDesc = 'updatedAt_DESC',
+	ConsumerKeyAsc = 'consumerKey_ASC',
+	ConsumerKeyDesc = 'consumerKey_DESC',
+	PrivateKeyAsc = 'privateKey_ASC',
+	PrivateKeyDesc = 'privateKey_DESC'
+}
+
 export enum ModeratorOrderByInput {
 	IdAsc = 'id_ASC',
 	IdDesc = 'id_DESC',
@@ -1785,6 +2123,78 @@ export type DateTime = any
 // ====================================================
 // Documents
 // ====================================================
+
+export type CreateApiServiceVariables = {
+	name: string
+}
+
+export type CreateApiServiceMutation = {
+	__typename?: 'Mutation'
+
+	createApiService: Maybe<CreateApiServiceCreateApiService>
+}
+
+export type CreateApiServiceCreateApiService = {
+	__typename?: 'APIService'
+
+	id: string
+
+	name: string
+
+	commentAPIs: Maybe<CreateApiServiceCommentApIs[]>
+
+	owner: CreateApiService_Owner
+
+	createdAt: DateTime
+
+	updatedAt: DateTime
+}
+
+export type CreateApiServiceCommentApIs = {
+	__typename?: 'CommentAPI'
+
+	id: string
+
+	name: string
+
+	commentSections: Maybe<CreateApiServiceCommentSections[]>
+
+	createdAt: DateTime
+
+	updatedAt: DateTime
+
+	owner: CreateApiServiceOwner
+
+	consumerKey: string
+
+	privateKey: string
+}
+
+export type CreateApiServiceCommentSections = {
+	__typename?: 'CommentSection'
+
+	id: string
+}
+
+export type CreateApiServiceOwner = {
+	__typename?: 'User'
+
+	id: string
+
+	username: string
+
+	email: Maybe<string>
+}
+
+export type CreateApiService_Owner = {
+	__typename?: 'User'
+
+	id: string
+
+	username: string
+
+	email: Maybe<string>
+}
 
 export type FetchCommentApiVariables = {
 	id: string
@@ -1894,6 +2304,7 @@ export type FetchCommentApiOwner = {
 
 export type CreateCommentApiVariables = {
 	name: string
+	serviceId: string
 }
 
 export type CreateCommentApiMutation = {
@@ -2014,6 +2425,144 @@ export type FetchCommentApisOwner = {
 	username: string
 
 	email: Maybe<string>
+}
+
+export type FetchApiServicesVariables = {}
+
+export type FetchApiServicesQuery = {
+	__typename?: 'Query'
+
+	fetchApiServices: Maybe<FetchApiServicesFetchApiServices[]>
+}
+
+export type FetchApiServicesFetchApiServices = {
+	__typename?: 'APIService'
+
+	id: string
+
+	name: string
+
+	commentAPIs: Maybe<FetchApiServicesCommentApIs[]>
+
+	owner: FetchApiServices_Owner
+
+	createdAt: DateTime
+
+	updatedAt: DateTime
+}
+
+export type FetchApiServicesCommentApIs = {
+	__typename?: 'CommentAPI'
+
+	id: string
+
+	name: string
+
+	commentSections: Maybe<FetchApiServicesCommentSections[]>
+
+	createdAt: DateTime
+
+	updatedAt: DateTime
+
+	owner: FetchApiServicesOwner
+
+	consumerKey: string
+
+	privateKey: string
+}
+
+export type FetchApiServicesCommentSections = {
+	__typename?: 'CommentSection'
+
+	id: string
+}
+
+export type FetchApiServicesOwner = {
+	__typename?: 'User'
+
+	id: string
+
+	username: string
+
+	email: Maybe<string>
+}
+
+export type FetchApiServices_Owner = {
+	__typename?: 'User'
+
+	username: string
+
+	id: string
+}
+
+export type FetchApiServiceVariables = {
+	id: string
+}
+
+export type FetchApiServiceQuery = {
+	__typename?: 'Query'
+
+	fetchApiService: Maybe<FetchApiServiceFetchApiService>
+}
+
+export type FetchApiServiceFetchApiService = {
+	__typename?: 'APIService'
+
+	id: string
+
+	name: string
+
+	commentAPIs: Maybe<FetchApiServiceCommentApIs[]>
+
+	owner: FetchApiService_Owner
+
+	createdAt: DateTime
+
+	updatedAt: DateTime
+}
+
+export type FetchApiServiceCommentApIs = {
+	__typename?: 'CommentAPI'
+
+	id: string
+
+	name: string
+
+	commentSections: Maybe<FetchApiServiceCommentSections[]>
+
+	createdAt: DateTime
+
+	updatedAt: DateTime
+
+	owner: FetchApiServiceOwner
+
+	consumerKey: string
+
+	privateKey: string
+}
+
+export type FetchApiServiceCommentSections = {
+	__typename?: 'CommentSection'
+
+	id: string
+}
+
+export type FetchApiServiceOwner = {
+	__typename?: 'User'
+
+	id: string
+
+	username: string
+
+	email: Maybe<string>
+}
+
+export type FetchApiService_Owner = {
+	__typename?: 'User'
+
+	username: string
+
+	id: string
 }
 
 export type CommentApiFragmentFragment = {
@@ -2168,6 +2717,74 @@ export const CommentApiFragmentFragmentDoc = gql`
 // Components
 // ====================================================
 
+export const CreateApiServiceDocument = gql`
+	mutation CreateAPIService($name: String!) {
+		createApiService(name: $name) {
+			id
+			name
+			commentAPIs {
+				id
+				name
+				commentSections {
+					id
+				}
+				createdAt
+				updatedAt
+				owner {
+					id
+					username
+					email
+				}
+				consumerKey
+				privateKey
+			}
+			owner {
+				id
+				username
+				email
+			}
+			createdAt
+			updatedAt
+		}
+	}
+`
+export class CreateApiServiceComponent extends React.Component<
+	Partial<ReactApollo.MutationProps<CreateApiServiceMutation, CreateApiServiceVariables>>
+> {
+	render() {
+		return (
+			<ReactApollo.Mutation<CreateApiServiceMutation, CreateApiServiceVariables>
+				mutation={CreateApiServiceDocument}
+				{...(this as any)['props'] as any}
+			/>
+		)
+	}
+}
+export type CreateApiServiceProps<TChildProps = any> = Partial<
+	ReactApollo.MutateProps<CreateApiServiceMutation, CreateApiServiceVariables>
+> &
+	TChildProps
+export type CreateApiServiceMutationFn = ReactApollo.MutationFn<
+	CreateApiServiceMutation,
+	CreateApiServiceVariables
+>
+export function CreateApiServiceHOC<TProps, TChildProps = any>(
+	operationOptions:
+		| ReactApollo.OperationOption<
+				TProps,
+				CreateApiServiceMutation,
+				CreateApiServiceVariables,
+				CreateApiServiceProps<TChildProps>
+		  >
+		| undefined
+) {
+	return ReactApollo.graphql<
+		TProps,
+		CreateApiServiceMutation,
+		CreateApiServiceVariables,
+		CreateApiServiceProps<TChildProps>
+	>(CreateApiServiceDocument, operationOptions)
+}
 export const FetchCommentApiDocument = gql`
 	query FetchCommentAPI($id: ID!) {
 		fetchCommentAPI(id: $id) {
@@ -2247,8 +2864,8 @@ export function FetchCommentApiHOC<TProps, TChildProps = any>(
 	>(FetchCommentApiDocument, operationOptions)
 }
 export const CreateCommentApiDocument = gql`
-	mutation CreateCommentAPI($name: String!) {
-		createCommentApi(name: $name) {
+	mutation CreateCommentAPI($name: String!, $serviceId: ID!) {
+		createCommentApi(name: $name, serviceId: $serviceId) {
 			commentAPI {
 				...CommentAPIFragment
 			}
@@ -2372,4 +2989,130 @@ export function FetchCommentApisHOC<TProps, TChildProps = any>(
 		FetchCommentApisVariables,
 		FetchCommentApisProps<TChildProps>
 	>(FetchCommentApisDocument, operationOptions)
+}
+export const FetchApiServicesDocument = gql`
+	query FetchAPIServices {
+		fetchApiServices {
+			id
+			name
+			commentAPIs {
+				id
+				name
+				commentSections {
+					id
+				}
+				createdAt
+				updatedAt
+				owner {
+					id
+					username
+					email
+				}
+				consumerKey
+				privateKey
+			}
+			owner {
+				username
+				id
+			}
+			createdAt
+			updatedAt
+		}
+	}
+`
+export class FetchApiServicesComponent extends React.Component<
+	Partial<ReactApollo.QueryProps<FetchApiServicesQuery, FetchApiServicesVariables>>
+> {
+	render() {
+		return (
+			<ReactApollo.Query<FetchApiServicesQuery, FetchApiServicesVariables>
+				query={FetchApiServicesDocument}
+				{...(this as any)['props'] as any}
+			/>
+		)
+	}
+}
+export type FetchApiServicesProps<TChildProps = any> = Partial<
+	ReactApollo.DataProps<FetchApiServicesQuery, FetchApiServicesVariables>
+> &
+	TChildProps
+export function FetchApiServicesHOC<TProps, TChildProps = any>(
+	operationOptions:
+		| ReactApollo.OperationOption<
+				TProps,
+				FetchApiServicesQuery,
+				FetchApiServicesVariables,
+				FetchApiServicesProps<TChildProps>
+		  >
+		| undefined
+) {
+	return ReactApollo.graphql<
+		TProps,
+		FetchApiServicesQuery,
+		FetchApiServicesVariables,
+		FetchApiServicesProps<TChildProps>
+	>(FetchApiServicesDocument, operationOptions)
+}
+export const FetchApiServiceDocument = gql`
+	query FetchAPIService($id: ID!) {
+		fetchApiService(id: $id) {
+			id
+			name
+			commentAPIs {
+				id
+				name
+				commentSections {
+					id
+				}
+				createdAt
+				updatedAt
+				owner {
+					id
+					username
+					email
+				}
+				consumerKey
+				privateKey
+			}
+			owner {
+				username
+				id
+			}
+			createdAt
+			updatedAt
+		}
+	}
+`
+export class FetchApiServiceComponent extends React.Component<
+	Partial<ReactApollo.QueryProps<FetchApiServiceQuery, FetchApiServiceVariables>>
+> {
+	render() {
+		return (
+			<ReactApollo.Query<FetchApiServiceQuery, FetchApiServiceVariables>
+				query={FetchApiServiceDocument}
+				{...(this as any)['props'] as any}
+			/>
+		)
+	}
+}
+export type FetchApiServiceProps<TChildProps = any> = Partial<
+	ReactApollo.DataProps<FetchApiServiceQuery, FetchApiServiceVariables>
+> &
+	TChildProps
+export function FetchApiServiceHOC<TProps, TChildProps = any>(
+	operationOptions:
+		| ReactApollo.OperationOption<
+				TProps,
+				FetchApiServiceQuery,
+				FetchApiServiceVariables,
+				FetchApiServiceProps<TChildProps>
+		  >
+		| undefined
+) {
+	return ReactApollo.graphql<
+		TProps,
+		FetchApiServiceQuery,
+		FetchApiServiceVariables,
+		FetchApiServiceProps<TChildProps>
+	>(FetchApiServiceDocument, operationOptions)
 }

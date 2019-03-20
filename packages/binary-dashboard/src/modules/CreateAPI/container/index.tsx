@@ -1,13 +1,21 @@
 import * as React from 'react'
+import { useState } from 'react'
 import { Button } from 'semantic-ui-react'
 import { CreateCommentAPI } from '../components/CreateCommentAPI'
 
-const CreateAPIContainer: React.FC = (): JSX.Element => {
+interface IProps {
+	id: string
+}
+
+const CreateAPIContainer: React.FC<IProps> = ({ id }): JSX.Element => {
+	const [commentOpen, changeCommentOpen] = useState(false)
+
 	return (
 		<div>
 			<h2>Create API Container</h2>
-			<Button>Create Comment API</Button>
-			<CreateCommentAPI />
+			<Button onClick={() => changeCommentOpen(!commentOpen)}>Create Comment API</Button>
+			<Button>Create Chat API</Button>
+			{commentOpen && <CreateCommentAPI id={id} />}
 		</div>
 	)
 }

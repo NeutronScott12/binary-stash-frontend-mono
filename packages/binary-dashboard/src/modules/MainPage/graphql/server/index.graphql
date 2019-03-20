@@ -44,8 +44,8 @@ fragment CommentAPIFragment on CommentAPI {
 	privateKey
 }
 
-mutation CreateCommentAPI($name: String!) {
-	createCommentApi(name: $name) {
+mutation CreateCommentAPI($name: String!, $serviceId: ID!) {
+	createCommentApi(name: $name, serviceId: $serviceId) {
 		commentAPI {
 			...CommentAPIFragment
 		}

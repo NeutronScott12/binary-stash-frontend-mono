@@ -37,3 +37,4 @@ exports.InputField = function (_a) {
             React.createElement(semantic_ui_react_1.Form.Input, __assign({ style: { marginTop: '1rem' }, fluid: true }, props, field)),
             errorMessage && dirty === true ? (React.createElement(semantic_ui_react_1.Message, { error: errorMessage, header: "Action Forbidden", content: errors[field.name] })) : null)));
 };
+//# sourceMappingURL=InputField.js.map

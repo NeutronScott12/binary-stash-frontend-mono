@@ -8,6 +8,7 @@ import { FetchCommentApiComponent } from '../../../apollo/components/apollo-comp
 interface IProps extends RouteComponentProps<{ id: string }> {}
 
 const CommentAPILayout = styled.div`
+	padding: 1rem;
 	display: grid;
 	grid-template-columns: 30% auto;
 	grid-template-rows: auto;

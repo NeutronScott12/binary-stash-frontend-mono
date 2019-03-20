@@ -6,6 +6,7 @@ const CommentAPIContainer = React.lazy(() => import('../containers'))
 interface IProps extends RouteComponentProps {}
 
 export const CommentAPIRoutes: React.FC<IProps> = ({ match: { path } }) => {
+	console.log('COMMENTS WORKING')
 	return (
 		<React.Fragment>
 			<Route path={`${path}/:id`} component={CommentAPIContainer} />

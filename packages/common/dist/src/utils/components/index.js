@@ -4,3 +4,4 @@ var AuthRoute_1 = require("./AuthRoute");
 exports.AuthRoute = AuthRoute_1.AuthRoute;
 var MainSpinner_1 = require("./MainSpinner");
 exports.Spinner = MainSpinner_1.Spinner;
+//# sourceMappingURL=index.js.map

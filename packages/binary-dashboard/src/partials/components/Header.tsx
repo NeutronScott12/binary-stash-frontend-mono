@@ -1,9 +1,9 @@
-import * as React from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import * as React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Container = styled.div`
-	background: blue;
+	background: #4600EA;
 	grid-area: mainheader;
 
 	@media (min-width: 768px) {

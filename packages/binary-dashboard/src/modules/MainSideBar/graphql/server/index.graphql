@@ -1,0 +1,57 @@
+query FetchAPIServices {
+	fetchApiServices {
+		id
+		name
+		commentAPIs {
+			id
+			name
+			commentSections {
+				id
+			}
+			createdAt
+			updatedAt
+			owner {
+				id
+				username
+				email
+			}
+			consumerKey
+			privateKey
+		}
+		owner {
+			username
+			id
+		}
+		createdAt
+		updatedAt
+	}
+}
+
+query FetchAPIService($id: ID!) {
+	fetchApiService(id: $id) {
+		id
+		name
+		commentAPIs {
+			id
+			name
+			commentSections {
+				id
+			}
+			createdAt
+			updatedAt
+			owner {
+				id
+				username
+				email
+			}
+			consumerKey
+			privateKey
+		}
+		owner {
+			username
+			id
+		}
+		createdAt
+		updatedAt
+	}
+}

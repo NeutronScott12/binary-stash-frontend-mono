@@ -1,6 +1,14 @@
 import * as React from 'react';
+interface IFormInput {
+    prefix?: any;
+    component: any;
+    name: string;
+    type: string;
+    value: any;
+    placeholder: string;
+}
 interface IProps {
-    formInputs: any;
+    formInputs: IFormInput[];
     submitButton?: boolean;
     reply?: boolean;
     handleSubmit?: any;

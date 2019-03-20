@@ -2,7 +2,8 @@
 	"name": "@binary-stash/common",
 	"version": "1.0.0",
 	"description": "",
-	"main": "dist/index.js",
+	"main": "./dist/src/index.js",
+	"typings": "./dist/src/index.d.ts",
 	"scripts": {
 		"delete-build": "cross-env rimraf ./dist",
 		"build": "cross-env npm run delete-build && tsc",

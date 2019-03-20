@@ -1,0 +1,29 @@
+mutation CreateAPIService($name: String!) {
+	createApiService(name: $name) {
+		id
+		name
+		commentAPIs {
+			id
+			name
+			commentSections {
+				id
+			}
+			createdAt
+			updatedAt
+			owner {
+				id
+				username
+				email
+			}
+			consumerKey
+			privateKey
+		}
+		owner {
+			id
+			username
+			email
+		}
+		createdAt
+		updatedAt
+	}
+}

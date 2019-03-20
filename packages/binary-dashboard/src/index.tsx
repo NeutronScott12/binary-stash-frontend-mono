@@ -1,13 +1,16 @@
 import React from 'react'
 import { ApolloProvider } from 'react-apollo'
 import ReactDOM from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
 import client from './apollo'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
 	<ApolloProvider client={client as any}>
-		<App />
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
 	</ApolloProvider>,
 	document.getElementById('root')
 )

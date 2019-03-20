@@ -4,9 +4,11 @@ import * as React from 'react'
 import { Segment } from 'semantic-ui-react'
 import { CreateCommentApiComponent } from '../../../apollo/components/apollo-components'
 
-interface IProps {}
+interface IProps {
+	id: string
+}
 
-export const CreateCommentAPI: React.FC<IProps> = () => {
+export const CreateCommentAPI: React.FC<IProps> = ({ id }) => {
 	return (
 		<CreateCommentApiComponent>
 			{mutate => {
@@ -17,7 +19,8 @@ export const CreateCommentAPI: React.FC<IProps> = () => {
 							onSubmit={async ({ name }) => {
 								const response = await mutate({
 									variables: {
-										name
+										name,
+										serviceId: id
 									}
 								})
 
@@ -33,7 +36,7 @@ export const CreateCommentAPI: React.FC<IProps> = () => {
 												{
 													type: 'text',
 													name: 'name',
-													label: 'Name',
+													value: '',
 													placeholder: 'API Name',
 													component: InputField
 												}

@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import React from 'react'
+import { RouteComponentProps, withRouter } from 'react-router'
 import styled from 'styled-components'
-import SideBarContainer from './modules/MainSideBar/containers'
+import { BINARY_STASH_PRODUCT_ID } from './contants'
+import { SideBarContainer } from './modules/MainSideBar/containers'
 import { Header } from './partials/components/Header'
 import { Router } from './router'
-import { Container, Layout } from './styles'
+import { Layout } from './styles'
 
 const MainLayout = styled.div`
 	display: grid;
@@ -14,25 +15,42 @@ const MainLayout = styled.div`
 		'mainsidebar c c'
 		'mainsidebar c c';
 	grid-template-rows: 5rem 1fr 30px;
-	grid-template-columns: 15rem 1fr;
+	grid-template-columns: 15rem 100%;
+	border: 5px solid purple;
 `
 
-class App extends Component {
-	render() {
-		return (
-			<BrowserRouter>
-				<MainLayout>
-					<Header />
-					<SideBarContainer />
-					<Layout>
-						<Container>
-							<Router />
-						</Container>
-					</Layout>
-				</MainLayout>
-			</BrowserRouter>
+// interface IProps extends RouteComponentProps {}
+
+const App: React.FC<RouteComponentProps<{}>> = ({ location: { pathname } }): JSX.Element => {
+	const id = pathname.match(/\/[^app](\w+)/)
+
+	let reformatted
+
+	if (id) {
+		reformatted = id[0].slice(1, id[0].length)
+	}
+
+	let sidebar
+
+	if (pathname == '/' || pathname == '/product/create') {
+		sidebar = <SideBarContainer />
+	} else if (pathname == `/product/${reformatted}`) {
+		sidebar = <SideBarContainer serviceId={reformatted} />
+	} else if (localStorage.getItem(BINARY_STASH_PRODUCT_ID) !== '' && pathname !== '/') {
+		sidebar = (
+			<SideBarContainer serviceId={localStorage.getItem(BINARY_STASH_PRODUCT_ID) as any} />
 		)
 	}
+
+	return (
+		<MainLayout>
+			<Header />
+			{sidebar}
+			<Layout>
+				<Router />
+			</Layout>
+		</MainLayout>
+	)
 }
 
-export default App
+export default withRouter(App as any)

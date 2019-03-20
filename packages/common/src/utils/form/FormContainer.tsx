@@ -2,13 +2,17 @@ import { Field, Form } from 'formik'
 import * as React from 'react'
 import { Button } from 'semantic-ui-react'
 
-// interface IFormInput extends HTMLInputElement {
-// 	prefix: any
-// 	component: any
-// }
+interface IFormInput {
+	prefix?: any
+	component: any
+	name: string
+	type: string
+	value: any
+	placeholder: string
+}
 
 interface IProps {
-	formInputs: any
+	formInputs: IFormInput[]
 	submitButton?: boolean
 	reply?: boolean
 	handleSubmit?: any

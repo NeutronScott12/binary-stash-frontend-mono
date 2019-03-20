@@ -1,52 +1,46 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 import { Divider, Icon, List } from 'semantic-ui-react'
-import styled from 'styled-components'
-import {
-	FetchCommentApisFetchCommentApIs,
-	Maybe
-} from '../../../apollo/components/apollo-components'
+import { FetchApiServiceFetchApiService } from '../../../apollo/components/apollo-components'
+import { HeaderLayout } from '../styles'
 
 interface IProps {
-	commentAPI: Maybe<FetchCommentApisFetchCommentApIs>[]
+	data: FetchApiServiceFetchApiService
 }
 
-const HeaderLayout = styled.div`
-	color: #fff;
-	display: flex;
-	justify-content: content;
-	flex-direction: row;
+export const MainPageSidebar: React.FC<IProps> = ({ data }) => {
+	console.log('MYDATA', data)
 
-	h3 {
-		flex-grow: 3;
-	}
-`
-
-export const MainPageSidebar: React.FC<IProps> = ({ commentAPI }) => {
 	return (
 		<List>
 			<List.Header>
 				<HeaderLayout>
-					<h3 style={{ color: '#FFF' }}>Products</h3>
+					<h3 style={{ color: '#FFF' }}>Apps</h3>
 					<Link to="/create">
 						<Icon name="add" />
 					</Link>
 				</HeaderLayout>
 			</List.Header>
 			<Divider />
-			{commentAPI.map((api, i) => {
-				if (api) {
-					return (
-						<List.Item key={api.id}>
-							<Link to={`/app/${api.id}`}>
-								<h4>Name: {api.name}</h4>
-							</Link>
-						</List.Item>
-					)
-				} else {
-					return <div key={Math.random() + i}>Currently no APIs</div>
-				}
-			})}
+			{data.commentAPIs !== null && data.commentAPIs.length > 0 && (
+				<h4 style={{ color: '#FFF' }}>Comment APIs</h4>
+			)}
+			{data.commentAPIs &&
+				data.commentAPIs.map((api, i) => {
+					if (api) {
+						return (
+							<List.Item key={api.id}>
+								<Link to={`/app/comment-api/${api.id}`}>
+									<h4>Name: {api.name}</h4>
+								</Link>
+							</List.Item>
+						)
+					} else {
+						return <div key={Math.random() + i}>Currently no APIs</div>
+					}
+				})}
+
+			<Divider />
 		</List>
 	)
 }
